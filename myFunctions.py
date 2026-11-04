@@ -1,9 +1,9 @@
 import turtle
 from random import randint
-
+bgcolor = "black"
 turtle.colormode(255)
 screen = turtle.Screen()
-screen.bgcolor("orange")
+screen.bgcolor(bgcolor)
 turtle.tracer(0)
 a = turtle.Turtle()
 a.speed(0)
@@ -34,21 +34,21 @@ def moon(x, y, radius):
     a.begin_fill()
     a.circle(radius)
     a.end_fill()
-    for _ in range(10):
-        o = randint(0, 100)
-        p = randint(0, 100)
-        a.penup()
-        a.goto(x + o, y + p - radius)
-        a.pendown()
-        a.pencolor("grey")
-        a.fillcolor("white")
-        a.begin_fill()
+    a.penup()
+    a.goto(x + radius * 0.6, y - radius)
+    a.pendown()
+    a.pencolor(bgcolor)
+    a.fillcolor(bgcolor)
+    a.begin_fill()
+    a.circle(radius)
+    a.end_fill()
 
 def grass(distance, x, y):
     a.penup()
     a.goto(x, y)
     a.pendown()
-    a.pencolor(27, 71, 25)
+    a.pensize(5)
+    a.pencolor("dark green")
     a.fillcolor("green")
     a.begin_fill()
     for _ in range(2):
