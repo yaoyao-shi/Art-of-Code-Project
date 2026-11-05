@@ -4,16 +4,19 @@ bgcolor = "black"
 turtle.colormode(255)
 screen = turtle.Screen()
 screen.bgcolor(bgcolor)
+screen.setup(width=960, height=800)
 turtle.tracer(0)
 a = turtle.Turtle()
 a.speed(0)
 a.pensize(5)
+screenwidth = screen.window_width()
+screenheight = screen.window_height()
 
 
-def star(num, size):
+def stars(num, size):
     for _ in range(num):
-        x = randint(-500, 500)
-        y = randint(-500, 500)
+        x = randint(-screenwidth//2 + size, screenwidth//2 - size)
+        y = randint(-screenheight//2 + size, screenheight//2 - size)
         a.penup()
         a.goto(x, y)
         a.pensize(size)
@@ -43,6 +46,21 @@ def moon(x, y, radius):
     a.circle(radius)
     a.end_fill()
 
+def clouds(x, y, minsize, maxsize):
+    a.penup()
+    a.goto(x, y)
+    a.pendown()
+    a.pencolor("white")
+    a.fillcolor("white")
+    for _ in range(5):
+        a.begin_fill()
+        s = randint(minsize, maxsize)
+        a.circle(s)
+        a.penup()
+        a.forward(s * 1.5)
+        a.pendown()
+        a.end_fill()
+
 def grass(distance, x, y):
     a.penup()
     a.goto(x, y)
@@ -69,4 +87,25 @@ def mountain(x, y, min, max):
     for _ in range(3):
         a.forward(d)
         a.left(120)
+    a.end_fill()
+
+def house(x, y, width, height):
+    a.penup()
+    a.goto(x, y)
+    a.pendown()
+    a.pencolor("brown")
+    a.fillcolor("brown")
+    a.begin_fill()
+    for _ in range(2):
+        a.forward(width)
+        a.left(90)
+        a.forward(height)
+        a.left(90)
+    a.end_fill()
+    a.fillcolor("red")
+    a.begin_fill()
+    a.goto(x, y + height)
+    a.goto(x + width / 2, y + height + (width / 2))
+    a.goto(x + width, y + height)
+    a.goto(x, y + height)
     a.end_fill()
