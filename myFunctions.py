@@ -33,7 +33,7 @@ def moon(x, y, radius):
     a.goto(x, y - radius)
     a.pendown()
     a.pencolor("grey")
-    a.fillcolor("white")
+    a.fillcolor((195, 195, 195))
     a.begin_fill()
     a.circle(radius)
     a.end_fill()
