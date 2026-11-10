@@ -97,7 +97,7 @@ def trees(x, y, size):
     a.penup()
     a.goto(x, y)   
     a.pendown()
-    a.pencolor("brown")
+    a.pencolor(97, 18, 18)
     a.fillcolor("brown")
     a.begin_fill()
     for _ in range(2):
@@ -117,4 +117,3 @@ def trees(x, y, size):
         a.circle(size/4)
         a.left(120)
         a.end_fill()
-    a.forward(0)
